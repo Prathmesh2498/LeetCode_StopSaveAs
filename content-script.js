@@ -6,8 +6,70 @@ try {
             event.preventDefault();
         }
     };
-    
+
+    const ytHandler = (event) => {
+        console.log("In onload....")
+        const URL = window.location.href;
+        const re2 = /^https:\/\/www.youtube\.com\/$/;
+        if(re2.test(URL)){
+            const guideskeleton = document.getElementById("guide-skeleton");
+            if(guideskeleton){
+                guideskeleton.parentNode.removeChild(guideskeleton);
+            }
+            const homeContentSkeleton = document.getElementById("home-container-skeleton");
+            if(homeContentSkeleton){
+                homeContentSkeleton.parentNode.removeChild(homeContentSkeleton);
+            }
+            const contents = document.getElementById("contents");
+            if(contents){
+                contents.parentNode.removeChild(contents);
+            }
+            const chips = document.getElementById("chips");
+            if(chips){
+                chips.parentNode.removeChild(chips);
+            }
+            const guide = document.getElementById("guide");
+            if(guide){
+                guide.parentNode.removeChild(guide);
+            }
+            /*
+            UNCOMMENT IF YOU WANT TO REMOVE THE OPTIONS BUTTON TO SHOW PLAYLISTS 
+            const guideIcon = document.getElementById("guide-icon");
+            if(guideIcon){
+                guideIcon.parentNode.removeChild(guideIcon);
+            } */
+        }
+        const re3 = /^https:\/\/www.youtube\.com\/*/;
+        if (!re2.test(URL) && re3.test(URL)){
+            const secondary = document.getElementById("secondary");
+            if(secondary){
+                secondary.parentNode.removeChild(secondary);
+            }
+        }
+    }
+
     window.addEventListener("keydown", eventHandler);
+    window.addEventListener("onload", eventHandler);
+    
+    const URL = window.location.href;
+    const re2 = /^https:\/\/www.youtube\.com\/$/;
+    
+    //setTimeout(ytHandler, 40);
+
+    let observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (!mutation.addedNodes) return
+          ytHandler({})  
+        })
+      })
+      
+      observer.observe(document.body, {
+          childList: true
+        , subtree: true
+        , attributes: false
+        , characterData: false
+      })
+      
 } catch (error) {
     console.log("Error while initilizing handler.",error);
 }
