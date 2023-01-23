@@ -11,4 +11,10 @@ Directions to use it =>
 2. Open extensions tab in Chrome or Brave.
 3. Click Load unpacked and select the cloned folder.
 
+Added Feature:
+Removes Youtube suggestions. 
+
+Reasons for not creting separate repo:
+My humble attempt at creating super extension. (AKA I'm lazy)
+
 The extension should run automatically. If you have experience with firefox, safari, please feel free to write clones for them as well.
