@@ -8,7 +8,6 @@ try {
     };
 
     const ytHandler = (event) => {
-        console.log("In onload....")
         const URL = window.location.href;
         const re2 = /^https:\/\/www.youtube\.com\/$/;
         if(re2.test(URL)){
@@ -21,7 +20,7 @@ try {
                 homeContentSkeleton.parentNode.removeChild(homeContentSkeleton);
             }
             const contents = document.getElementById("contents");
-            if(contents){
+            if(contents && contents.getAttribute("class") != "style-scope ytd-section-list-renderer"){
                 contents.parentNode.removeChild(contents);
             }
             const chips = document.getElementById("chips");
@@ -71,5 +70,5 @@ try {
       })
       
 } catch (error) {
-    console.log("Error while initilizing handler.",error);
+    console.error("Error while initilizing handler.",error);
 }
