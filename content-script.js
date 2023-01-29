@@ -31,6 +31,10 @@ try {
             if(guide){
                 guide.parentNode.removeChild(guide);
             }
+            const rightArrow = document.getElementById("right-arrow");
+            if(rightArrow){
+                rightArrow.parentNode.removeChild(rightArrow);
+            }
             /*
             UNCOMMENT IF YOU WANT TO REMOVE THE OPTIONS BUTTON TO SHOW PLAYLISTS 
             const guideIcon = document.getElementById("guide-icon");
