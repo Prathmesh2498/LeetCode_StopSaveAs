@@ -15,6 +15,6 @@ Added Feature:
 Removes Youtube suggestions. 
 
 Reasons for not creting separate repo:
-My humble attempt at creating super extension. (AKA I'm lazy)
+I'm converting this into a creating super extension. (AKA I'm lazy)
 
 The extension should run automatically. If you have experience with firefox, safari, please feel free to write clones for them as well.
