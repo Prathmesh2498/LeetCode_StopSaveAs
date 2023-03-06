@@ -1,7 +1,10 @@
 try {
+    var Flag = true;
+
     const eventHandler =  (event) => {
         const URL = window.location.href;
         const re = /^https:\/\/leetcode\.com\/*/;
+        
         if(re.test(URL) && event.ctrlKey && event.key == "s"){
             event.preventDefault();
         }
@@ -29,8 +32,11 @@ try {
             }
             const guide = document.getElementById("guide");
             if(guide){
-                guide.parentNode.removeChild(guide);
-            }
+                if (guide.opened && Flag) {
+                    guide.removeAttribute("opened");
+                    Flag = false;
+                }
+            } 
             const rightArrow = document.getElementById("right-arrow");
             if(rightArrow){
                 rightArrow.parentNode.removeChild(rightArrow);

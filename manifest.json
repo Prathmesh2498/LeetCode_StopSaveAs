@@ -1,6 +1,6 @@
 {
-    "name": "Leetcode Extension",
-    "description": "Prevent save dialog box for crtl + s on leetcode",
+    "name": "Help with web stuff",
+    "description": "Helpful utilities while lurking around on the internet.",
     "version": "1.0",
     "manifest_version": 3,
     "background": {
