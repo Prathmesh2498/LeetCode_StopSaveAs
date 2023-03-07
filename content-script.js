@@ -1,6 +1,5 @@
 try {
     var Flag = true;
-
     const eventHandler =  (event) => {
         const URL = window.location.href;
         const reLeetCode = /^https:\/\/leetcode\.com\/*/;
@@ -61,16 +60,18 @@ try {
         }
 
         /*MEDIUM*/
-        const reMedium = /^https:\/\/medium\.com\/*/;
-        const className = "cm cn h co cp cq k cr cs ct j cu cv cw cx cy cz da db dc dd de c df dg"
+       /*  const reMedium = /^https:\/\/[a-zA-Z0-9\-\.]*medium[a-zA-Z0-9\-\.]*\.com\/*;
+        const className = "ab cb cc"
         if(reMedium.test(URL)){
-            console.log("Hello");
             const sidePanel = document.getElementsByClassName(className)[0];
-            console.log(sidePanel)
-            if (sidePanel) {
-                sidePanel.parentNode.removeChild(sidePanel);
+            console.log(sidePanel);
+            const childToRemove = sidePanel.children?.length >= 2 ? sidePanel.children[1] : null;
+            if (childToRemove) {
+                childToRemove.parentNode.removeChild(childToRemove);
             }
-        }
+        } else { 
+            console.log("Broke")
+        } */
     }
 
     window.addEventListener("keydown", eventHandler);
