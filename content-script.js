@@ -3,14 +3,14 @@ try {
 
     const eventHandler =  (event) => {
         const URL = window.location.href;
-        const re = /^https:\/\/leetcode\.com\/*/;
+        const reLeetCode = /^https:\/\/leetcode\.com\/*/;
         
-        if(re.test(URL) && event.ctrlKey && event.key == "s"){
+        if(reLeetCode.test(URL) && event.ctrlKey && event.key == "s"){
             event.preventDefault();
         }
     };
 
-    const ytHandler = (event) => {
+    const autoSiteHandler = (event) => {
         const URL = window.location.href;
         const re2 = /^https:\/\/www.youtube\.com\/$/;
         if(re2.test(URL)){
@@ -41,6 +41,10 @@ try {
             if(rightArrow){
                 rightArrow.parentNode.removeChild(rightArrow);
             }
+            const ad = document.getElementById("masthead-ad");
+            if (ad) {
+                ad.parentNode.removeChild(ad);
+            }
             /*
             UNCOMMENT IF YOU WANT TO REMOVE THE OPTIONS BUTTON TO SHOW PLAYLISTS 
             const guideIcon = document.getElementById("guide-icon");
@@ -55,20 +59,27 @@ try {
                 secondary.parentNode.removeChild(secondary);
             }
         }
+
+        /*MEDIUM*/
+        const reMedium = /^https:\/\/medium\.com\/*/;
+        const className = "cm cn h co cp cq k cr cs ct j cu cv cw cx cy cz da db dc dd de c df dg"
+        if(reMedium.test(URL)){
+            console.log("Hello");
+            const sidePanel = document.getElementsByClassName(className)[0];
+            console.log(sidePanel)
+            if (sidePanel) {
+                sidePanel.parentNode.removeChild(sidePanel);
+            }
+        }
     }
 
     window.addEventListener("keydown", eventHandler);
     window.addEventListener("onload", eventHandler);
     
-    const URL = window.location.href;
-    const re2 = /^https:\/\/www.youtube\.com\/$/;
-    
-    //setTimeout(ytHandler, 40);
-
     let observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           if (!mutation.addedNodes) return
-          ytHandler({})  
+          autoSiteHandler({})  
         })
       })
       
